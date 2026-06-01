@@ -202,52 +202,31 @@ export const programData = {
 
   dailySchedule: [
     {
-      time: "6:30 AM",
-      activity: "Morning Lift",
+      time: "8:00 – 10:30 AM",
+      activity: "Class",
       description:
-        "Strength & conditioning with our S&C coordinator. Structured program based on positional demands.",
+        "Academic schedule comes first. Players complete their morning classes before anything else. Academic standing is monitored and required for participation.",
+      type: "academic",
+    },
+    {
+      time: "11:00 AM – 12:00 PM",
+      activity: "Weights",
+      description:
+        "Strength & conditioning. Sport-specific lifting program built around positional demands and recovery load.",
       type: "performance",
     },
     {
-      time: "8:00 AM",
-      activity: "Class Block 1",
-      description:
-        "Core academic schedule. Academic standing is monitored and required for participation.",
-      type: "academic",
-    },
-    {
-      time: "12:00 PM",
-      activity: "Film & Individual Development",
-      description:
-        "Video review, individual skill work, and position-specific development with coaches.",
-      type: "development",
-    },
-    {
-      time: "2:00 PM",
+      time: "1:00 – 4:00 PM",
       activity: "Team Practice",
       description:
-        "Full team practice — structured, competitive, and high-intensity. Every rep counts.",
+        "Full team practice — structured, competitive, and high-intensity. Every rep is evaluated. Every day matters.",
       type: "practice",
-    },
-    {
-      time: "5:30 PM",
-      activity: "Recovery Protocol",
-      description:
-        "Cold/contrast therapy, mobility work, and arm care. Non-negotiable for pitchers.",
-      type: "recovery",
-    },
-    {
-      time: "6:30 PM",
-      activity: "Study Hall",
-      description:
-        "Required for all players below a 3.0 GPA. Academic success is a program priority.",
-      type: "academic",
     },
     {
       time: "Game Days",
       activity: "Competition",
       description:
-        "Competing in the PCAC against elite California JUCO competition. Every game matters.",
+        "Competing in the PCAC against elite California JUCO competition. The 2026 Comets went 43–6 — every game matters.",
       type: "competition",
     },
   ],
