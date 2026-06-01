@@ -678,23 +678,43 @@ export const programData = {
       "Every Palomar Baseball player is equipped with a complete set of program gear upon joining the team. We take pride in how we look on and off the field — representing our program starts before the first pitch.",
     uniformPhotos: [
       {
-        label: "Home Whites",
-        description: "Official home game uniform — white with red and black details.",
+        label: "Powder Blues",
+        description: "Light blue throwback jerseys with red 'Palomar' script, red caps, red belts, and red stirrups. Worn for select home and showcase games.",
         image: null,
       },
       {
-        label: "Away Grays",
-        description: "Official away uniform — gray with red and black accents.",
+        label: "Army Green",
+        description: "Olive green jersey with dark 'Palomar' script and American flag patch. Black P cap with brown brim. A fan-favorite alternate.",
         image: null,
       },
       {
-        label: "Alternate Black",
-        description: "Black alternate jersey worn for select games and special events.",
+        label: "Pink (Awareness)",
+        description: "Pink jerseys with black P cap worn in support of breast cancer awareness. A unique tradition that shows the program's character off the field.",
         image: null,
       },
       {
-        label: "Practice Gear",
-        description: "Daily practice jerseys, shorts, and warmup layers.",
+        label: "Cream & Red",
+        description: "Classic cream home whites with red P logo, red pinstripe detail, and red Rawlings helmet. Clean, traditional, and sharp.",
+        image: null,
+      },
+      {
+        label: "Red Comets",
+        description: "Red jerseys featuring the 'Comets' wordmark with comet-star graphic and black trim. Paired with gray pants and red/black helmet.",
+        image: null,
+      },
+      {
+        label: "Creams",
+        description: "Off-white cream jerseys with dark 'Palomar' script, dark P cap, and black stirrups. A clean, vintage look worn in marquee matchups.",
+        image: null,
+      },
+      {
+        label: "Black & Red",
+        description: "All-black jersey with red 'Palomar' script and red trim, paired with white pants and red socks. One of the sharpest looks in the rotation.",
+        image: null,
+      },
+      {
+        label: "White Pinstripes",
+        description: "White jersey with black pinstripes, dark 'Palomar' script, and star accents. A classic pinstripe look that stands out on the field.",
         image: null,
       },
     ],
