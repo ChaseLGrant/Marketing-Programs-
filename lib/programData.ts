@@ -757,6 +757,53 @@ export const programData = {
       "Socks & belt (team colors)",
     ],
   },
+
+  notableAlumni: [
+    {
+      name: "Tyler Saladino",
+      position: "SS / 2B / 3B",
+      era: "2008–2009",
+      photo: null,
+      mlbTeams: ["Chicago White Sox", "Milwaukee Brewers"],
+      draftInfo: "7th Round, 2010 MLB Draft — Chicago White Sox",
+      atPalomar: "Two-time 1st Team All-Conference. PCAC Player of the Year. 1st Team All-State & All-American. Hit .441 overall and .616 in conference play as a sophomore. Career .399 BA — 5th all-time at Palomar.",
+      careerHighlight: "Hit .282/.315/.409 with 8 HR, 38 RBI, and 11 SB in 93 games for the White Sox in 2016. Known for a grand slam on his MLB debut at-bat.",
+      palmarHOF: true,
+    },
+    {
+      name: "Kyle Carr",
+      position: "LHP",
+      era: "2022–2023",
+      photo: null,
+      mlbTeams: ["New York Yankees (MiLB)"],
+      draftInfo: "3rd Round, 2023 MLB Draft — New York Yankees. First JUCO player selected in the 2023 Draft.",
+      atPalomar: "Dominant ace for the Comets. Fastball up to 98 mph with a three-pitch mix. One of the most decorated pitchers in recent Palomar history.",
+      careerHighlight: "Highest-drafted Palomar pitcher in program history. First JUCO player taken in the 2023 MLB Draft.",
+      palmarHOF: false,
+    },
+    {
+      name: "Quincy Scott",
+      position: "OF",
+      era: "2022–2023",
+      photo: null,
+      mlbTeams: ["Texas Rangers (MiLB)"],
+      draftInfo: "9th Round, 2023 MLB Draft — Texas Rangers",
+      atPalomar: "Top three in nearly every Palomar offensive category including BA, hits, runs, RBI, and OBP. One of the most productive hitters in recent program history.",
+      careerHighlight: "Drafted alongside fellow Comet Kyle Carr in the 2023 MLB Draft — one of the best draft classes in Palomar history.",
+      palmarHOF: false,
+    },
+    {
+      name: "Jacob Widener",
+      position: "RHP",
+      era: "2019–2021",
+      photo: null,
+      mlbTeams: ["Kansas City Royals (MiLB)"],
+      draftInfo: "9th Round, 2023 MLB Draft — Kansas City Royals",
+      atPalomar: "Pitched for the Comets before transferring to Oral Roberts University, where he helped lead the team to the NCAA College World Series.",
+      careerHighlight: "Part of the historic 2023 Palomar-to-MLB draft class. College World Series participant at Oral Roberts.",
+      palmarHOF: false,
+    },
+  ],
 };
 
 export type ProgramData = typeof programData;

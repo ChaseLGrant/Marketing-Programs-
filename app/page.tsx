@@ -9,6 +9,7 @@ import { FacilitiesSection } from "@/components/sections/FacilitiesSection";
 import { UniformsSection } from "@/components/sections/UniformsSection";
 import { RecruitingStandardsSection } from "@/components/sections/RecruitingStandardsSection";
 import { OpportunityIndexSection } from "@/components/sections/OpportunityIndexSection";
+import { NotableAlumniSection } from "@/components/sections/NotableAlumniSection";
 import { OutcomesSection } from "@/components/sections/OutcomesSection";
 import { FAQSection } from "@/components/sections/FAQSection";
 import { RecruitFormSection } from "@/components/sections/RecruitFormSection";
@@ -30,6 +31,7 @@ export default function Home() {
       <UniformsSection />
       <RecruitingStandardsSection />
       <OpportunityIndexSection />
+      <NotableAlumniSection />
       <OutcomesSection />
       <FAQSection />
       <RecruitFormSection />

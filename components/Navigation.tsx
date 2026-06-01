@@ -11,6 +11,7 @@ const navLinks = [
   { label: "Facilities", href: "#facilities" },
   { label: "Uniforms & Gear", href: "#uniforms" },
   { label: "Opportunities", href: "#opportunities" },
+  { label: "Alumni", href: "#alumni" },
   { label: "Outcomes", href: "#outcomes" },
   { label: "FAQ", href: "#faq" },
 ];
