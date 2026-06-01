@@ -231,6 +231,42 @@ export const programData = {
     },
   ],
 
+  gameDaySchedule: {
+    note: "Pregame routine is the same structure for every game — times shift based on first pitch.",
+    gameStartTimes: [
+      {
+        gameTime: "12:00 PM",
+        steps: [
+          { time: "8:00 AM",  activity: "Arrival" },
+          { time: "8:45 AM",  activity: "Stretch" },
+          { time: "9:30 AM",  activity: "BP" },
+          { time: "11:00 AM", activity: "Inf / OF" },
+          { time: "12:00 PM", activity: "First Pitch" },
+        ],
+      },
+      {
+        gameTime: "1:00 PM",
+        steps: [
+          { time: "9:00 AM",  activity: "Arrival" },
+          { time: "9:45 AM",  activity: "Stretch" },
+          { time: "10:30 AM", activity: "BP" },
+          { time: "12:00 PM", activity: "Inf / OF" },
+          { time: "1:00 PM",  activity: "First Pitch" },
+        ],
+      },
+      {
+        gameTime: "2:00 PM",
+        steps: [
+          { time: "10:00 AM", activity: "Arrival" },
+          { time: "10:45 AM", activity: "Stretch" },
+          { time: "11:30 AM", activity: "BP" },
+          { time: "1:00 PM",  activity: "Inf / OF" },
+          { time: "2:00 PM",  activity: "First Pitch" },
+        ],
+      },
+    ],
+  },
+
   development: {
     areas: [
       {

@@ -1,6 +1,7 @@
 "use client";
 import { programData } from "@/lib/programData";
 import { SectionHeader } from "@/components/ui/section-header";
+import { cn } from "@/lib/utils";
 
 const typeConfig: Record<string, { label: string; dotColor: string; textColor: string }> = {
   performance: { label: "Performance", dotColor: "bg-orange-400", textColor: "text-orange-400/70" },
@@ -63,6 +64,37 @@ export function DailyScheduleSection() {
         <p className="text-center text-xs text-white/20 mt-4 italic">
           Schedule varies by season. Representative of a typical in-season week.
         </p>
+
+        {/* Game Day Schedule */}
+        <div className="mt-20">
+          <div className="mb-8 text-center">
+            <p className="section-eyebrow mb-3">Game Day</p>
+            <h3 className="text-2xl font-black text-white mb-2">Pregame Routine</h3>
+            <p className="text-xs text-white/35">{programData.gameDaySchedule.note}</p>
+          </div>
+
+          <div className="grid sm:grid-cols-3 gap-4">
+            {programData.gameDaySchedule.gameStartTimes.map((game, gi) => (
+              <div key={gi} className="card overflow-hidden">
+                <div className="px-5 py-3 border-b border-white/[0.06] flex items-center justify-between">
+                  <span className="text-[0.65rem] font-bold tracking-[0.15em] uppercase text-white/30">First Pitch</span>
+                  <span className="text-sm font-black text-[#C8102E]">{game.gameTime}</span>
+                </div>
+                <div className="p-4 space-y-0">
+                  {game.steps.map((step, si) => {
+                    const isLast = si === game.steps.length - 1;
+                    return (
+                      <div key={si} className={cn("flex items-center gap-3 py-2.5", !isLast && "border-b border-white/[0.04]")}>
+                        <span className="text-[0.65rem] font-bold text-white/25 w-16 flex-shrink-0">{step.time}</span>
+                        <span className={cn("text-xs font-semibold", isLast ? "text-[#C8102E]" : "text-white/60")}>{step.activity}</span>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
