@@ -67,11 +67,11 @@ export const programData = {
   coaches: [
     {
       id: 1,
-      name: "Head Coach",
+      name: "Ben Adams",
       role: "Head Coach",
-      nameDisplay: "Coach [Name]",
+      nameDisplay: "Ben Adams",
       photo: null,
-      bio: "With over [X] years of collegiate coaching experience, our head coach brings a player-first philosophy and a track record of developing athletes who compete at the next level. A former collegiate player himself, he understands the journey our athletes are on and is committed to helping every player reach their potential.",
+      bio: "Ben Adams enters his 8th season as Head Coach and 22nd year overall with Palomar Baseball. A former collegiate player at Big Bend Community College and Eastern Oregon University, Adams earned his M.A. in Physical Education from Western Michigan University. Before taking over as head coach, he spent 13 seasons as Associate Head Coach and Recruiting Coordinator under Hall of Fame coach Buck Taylor — winning 8 Pacific Coast Conference championships, 6 regional titles, and reaching the 2015 CCCAA Final Four. As head coach, Adams has delivered 4 straight conference championships (2022–2025) and led the Comets to the 2022 Final Four. He also serves as an associate professor in the Health/Kinesiology department.",
       recruitingPhilosophy:
         "I recruit character first. If you have the makeup — the work ethic, the coachability, the competitive drive — we can develop the skill. I want players who are hungry, humble, and hard-working. Players who want to compete, want to improve, and want to be part of something bigger than themselves.",
       valuesInAthletes: [
