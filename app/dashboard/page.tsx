@@ -3,13 +3,14 @@ import { useState } from "react";
 import { programData } from "@/lib/programData";
 import Link from "next/link";
 
-type Section = "overview" | "story" | "coaches" | "facilities" | "standards" | "roster" | "outcomes" | "updates";
+type Section = "overview" | "story" | "coaches" | "facilities" | "uniforms" | "standards" | "roster" | "outcomes" | "updates";
 
 const navItems: { id: Section; label: string; icon: string }[] = [
   { id: "overview", label: "Overview", icon: "🏠" },
   { id: "story", label: "Program Story", icon: "📖" },
   { id: "coaches", label: "Coaching Staff", icon: "👤" },
   { id: "facilities", label: "Facilities", icon: "🏟️" },
+  { id: "uniforms", label: "Uniforms & Gear", icon: "👕" },
   { id: "standards", label: "Recruiting Standards", icon: "⚾" },
   { id: "roster", label: "Roster Needs", icon: "📊" },
   { id: "outcomes", label: "Player Outcomes", icon: "🏆" },
@@ -54,7 +55,7 @@ export default function DashboardPage() {
       >
         <div className="p-5 border-b border-white/[0.06]">
           <div className="flex items-center gap-3 mb-1">
-            <div className="w-8 h-8 rounded-full bg-[#003087] flex items-center justify-center text-sm font-bold text-white">
+            <div className="w-8 h-8 rounded-full bg-[#C8102E] flex items-center justify-center text-sm font-bold text-white">
               P
             </div>
             <span className="font-bold text-white text-sm">Palomar Baseball</span>
@@ -69,7 +70,7 @@ export default function DashboardPage() {
               onClick={() => { setActive(item.id); setSidebarOpen(false); }}
               className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors text-left ${
                 active === item.id
-                  ? "bg-[#003087]/20 text-white border border-[#003087]/30"
+                  ? "bg-[#C8102E]/20 text-white border border-[#C8102E]/30"
                   : "text-white/50 hover:text-white hover:bg-white/[0.04]"
               }`}
             >
@@ -144,7 +145,7 @@ export default function DashboardPage() {
                     "Update Recruiting Standards each fall with current benchmarks.",
                   ].map((tip, i) => (
                     <div key={i} className="flex items-start gap-3">
-                      <div className="w-5 h-5 rounded-full bg-[#003087]/20 border border-[#003087]/30 flex items-center justify-center text-xs text-blue-400 flex-shrink-0 mt-0.5">
+                      <div className="w-5 h-5 rounded-full bg-[#C8102E]/20 border border-[#C8102E]/30 flex items-center justify-center text-xs text-blue-400 flex-shrink-0 mt-0.5">
                         {i + 1}
                       </div>
                       <p className="text-sm text-white/50">{tip}</p>
@@ -169,12 +170,12 @@ export default function DashboardPage() {
                     value={storyData[key]}
                     onChange={(e) => setStoryData((prev) => ({ ...prev, [key]: e.target.value }))}
                     rows={rows}
-                    className="w-full bg-white/[0.03] border border-white/[0.08] rounded-lg px-4 py-3 text-sm text-white placeholder-white/20 focus:outline-none focus:border-blue-500/40 resize-none"
+                    className="w-full bg-white/[0.03] border border-white/[0.08] rounded-lg px-4 py-3 text-sm text-white placeholder-white/20 focus:outline-none focus:border-[#C8102E]/40 resize-none"
                   />
                   <div className="mt-3 flex justify-end">
                     <button
                       onClick={() => markSaved(key)}
-                      className="px-4 py-2 rounded-lg bg-[#003087] hover:bg-[#004bb5] text-white text-xs font-semibold transition-colors"
+                      className="px-4 py-2 rounded-lg bg-[#C8102E] hover:bg-[#a00d25] text-white text-xs font-semibold transition-colors"
                     >
                       {saved[key] ? "✓ Saved!" : "Save Changes"}
                     </button>
@@ -190,7 +191,7 @@ export default function DashboardPage() {
               {programData.coaches.map((coach) => (
                 <div key={coach.id} className="rounded-xl border border-white/[0.06] bg-[#111] p-6">
                   <div className="flex items-center gap-3 mb-5">
-                    <div className="w-10 h-10 rounded-full bg-[#003087]/20 flex items-center justify-center text-lg">👤</div>
+                    <div className="w-10 h-10 rounded-full bg-[#C8102E]/20 flex items-center justify-center text-lg">👤</div>
                     <div>
                       <div className="font-bold text-white">{coach.nameDisplay}</div>
                       <div className="text-xs text-blue-400">{coach.role}</div>
@@ -205,7 +206,7 @@ export default function DashboardPage() {
                   <div className="mt-4 flex justify-end">
                     <button
                       onClick={() => markSaved(`coach-${coach.id}`)}
-                      className="px-4 py-2 rounded-lg bg-[#003087] hover:bg-[#004bb5] text-white text-xs font-semibold transition-colors"
+                      className="px-4 py-2 rounded-lg bg-[#C8102E] hover:bg-[#a00d25] text-white text-xs font-semibold transition-colors"
                     >
                       {saved[`coach-${coach.id}`] ? "✓ Saved!" : "Save Coach"}
                     </button>
@@ -227,13 +228,74 @@ export default function DashboardPage() {
                   <div className="mt-4 flex justify-end">
                     <button
                       onClick={() => markSaved(`fac-${facility.id}`)}
-                      className="px-4 py-2 rounded-lg bg-[#003087] hover:bg-[#004bb5] text-white text-xs font-semibold transition-colors"
+                      className="px-4 py-2 rounded-lg bg-[#C8102E] hover:bg-[#a00d25] text-white text-xs font-semibold transition-colors"
                     >
                       {saved[`fac-${facility.id}`] ? "✓ Saved!" : "Save"}
                     </button>
                   </div>
                 </div>
               ))}
+            </div>
+          )}
+
+          {/* UNIFORMS */}
+          {active === "uniforms" && (
+            <div className="space-y-6 max-w-3xl">
+              <div className="rounded-xl border border-white/[0.06] bg-[#111] p-6">
+                <h3 className="font-bold text-white mb-2">Program Intro Text</h3>
+                <p className="text-xs text-white/30 mb-4">Shown at the top of the Uniforms & Gear section.</p>
+                <EditableTextarea label="" defaultValue={programData.uniforms.intro} rows={3} />
+                <div className="mt-4 flex justify-end">
+                  <button onClick={() => markSaved("uni-intro")} className="px-4 py-2 rounded-lg bg-[#C8102E] hover:bg-[#a00d25] text-white text-xs font-semibold transition-colors">
+                    {saved["uni-intro"] ? "✓ Saved!" : "Save"}
+                  </button>
+                </div>
+              </div>
+
+              <div className="rounded-xl border border-white/[0.06] bg-[#111] p-6">
+                <h3 className="font-bold text-white mb-4">Uniform Photos</h3>
+                <p className="text-xs text-white/30 mb-5">Add photo URLs for each uniform. Leave blank to show placeholder.</p>
+                <div className="space-y-4">
+                  {programData.uniforms.uniformPhotos.map((photo, i) => (
+                    <div key={i} className="p-4 rounded-xl bg-white/[0.03] border border-white/[0.06] space-y-3">
+                      <div className="flex items-center gap-2">
+                        <span className="font-semibold text-white text-sm">{photo.label}</span>
+                      </div>
+                      <EditableField label="Photo URL" defaultValue={photo.image || ""} placeholder="https://..." />
+                      <EditableField label="Description" defaultValue={photo.description} />
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-4 flex justify-end">
+                  <button onClick={() => markSaved("uni-photos")} className="px-4 py-2 rounded-lg bg-[#C8102E] hover:bg-[#a00d25] text-white text-xs font-semibold transition-colors">
+                    {saved["uni-photos"] ? "✓ Saved!" : "Save Photos"}
+                  </button>
+                </div>
+              </div>
+
+              <div className="rounded-xl border border-white/[0.06] bg-[#111] p-6">
+                <h3 className="font-bold text-white mb-4">Gear Items</h3>
+                <div className="space-y-4">
+                  {programData.uniforms.gearItems.map((item, i) => (
+                    <div key={i} className="p-4 rounded-xl bg-white/[0.03] border border-white/[0.06] space-y-3">
+                      <div className="flex items-center gap-2">
+                        <span className="text-xl">{item.icon}</span>
+                        <span className="font-semibold text-white text-sm">{item.name}</span>
+                        <span className={`ml-auto text-[0.6rem] font-bold px-2 py-0.5 rounded-md ${item.provided ? "bg-[#C8102E]/15 text-[#C8102E] border border-[#C8102E]/25" : "bg-white/[0.06] text-white/30 border border-white/10"}`}>
+                          {item.provided ? "PROVIDED" : "PLAYER SUPPLIED"}
+                        </span>
+                      </div>
+                      <EditableField label="Photo URL" defaultValue={item.image || ""} placeholder="https://..." />
+                      <EditableField label="Description" defaultValue={item.description} />
+                    </div>
+                  ))}
+                </div>
+                <div className="mt-4 flex justify-end">
+                  <button onClick={() => markSaved("uni-gear")} className="px-4 py-2 rounded-lg bg-[#C8102E] hover:bg-[#a00d25] text-white text-xs font-semibold transition-colors">
+                    {saved["uni-gear"] ? "✓ Saved!" : "Save Gear"}
+                  </button>
+                </div>
+              </div>
             </div>
           )}
 
@@ -252,7 +314,7 @@ export default function DashboardPage() {
                   <div className="mt-4 flex justify-end">
                     <button
                       onClick={() => markSaved(`std-${i}`)}
-                      className="px-4 py-2 rounded-lg bg-[#003087] hover:bg-[#004bb5] text-white text-xs font-semibold transition-colors"
+                      className="px-4 py-2 rounded-lg bg-[#C8102E] hover:bg-[#a00d25] text-white text-xs font-semibold transition-colors"
                     >
                       {saved[`std-${i}`] ? "✓ Saved!" : "Save"}
                     </button>
@@ -277,7 +339,7 @@ export default function DashboardPage() {
                           prev.map((c, j) => j === i ? { ...c, value: e.target.value } : c)
                         )
                       }
-                      className="w-full bg-white/[0.04] border border-white/[0.08] rounded-lg px-3 py-2 text-lg font-black text-white focus:outline-none focus:border-blue-500/40"
+                      className="w-full bg-white/[0.04] border border-white/[0.08] rounded-lg px-3 py-2 text-lg font-black text-white focus:outline-none focus:border-[#C8102E]/40"
                     />
                     <p className="text-[10px] text-white/25 mt-1">{card.sublabel}</p>
                   </div>
@@ -286,7 +348,7 @@ export default function DashboardPage() {
               <div className="flex justify-end">
                 <button
                   onClick={() => markSaved("roster")}
-                  className="px-5 py-2.5 rounded-lg bg-[#003087] hover:bg-[#004bb5] text-white text-sm font-semibold transition-colors"
+                  className="px-5 py-2.5 rounded-lg bg-[#C8102E] hover:bg-[#a00d25] text-white text-sm font-semibold transition-colors"
                 >
                   {saved["roster"] ? "✓ Saved!" : "Save Roster Data"}
                 </button>
@@ -309,7 +371,7 @@ export default function DashboardPage() {
                         onChange={(e) =>
                           setOutcomes((prev) => prev.map((s, j) => j === i ? { ...s, value: e.target.value } : s))
                         }
-                        className="w-36 bg-white/[0.04] border border-white/[0.08] rounded-lg px-3 py-2 text-sm font-bold text-white focus:outline-none focus:border-blue-500/40 text-center"
+                        className="w-36 bg-white/[0.04] border border-white/[0.08] rounded-lg px-3 py-2 text-sm font-bold text-white focus:outline-none focus:border-[#C8102E]/40 text-center"
                       />
                     </div>
                   ))}
@@ -317,7 +379,7 @@ export default function DashboardPage() {
                 <div className="mt-4 flex justify-end">
                   <button
                     onClick={() => markSaved("outcomes")}
-                    className="px-4 py-2 rounded-lg bg-[#003087] hover:bg-[#004bb5] text-white text-xs font-semibold transition-colors"
+                    className="px-4 py-2 rounded-lg bg-[#C8102E] hover:bg-[#a00d25] text-white text-xs font-semibold transition-colors"
                   >
                     {saved["outcomes"] ? "✓ Saved!" : "Save Stats"}
                   </button>
@@ -336,7 +398,7 @@ export default function DashboardPage() {
                   onChange={(e) => setUpdateText(e.target.value)}
                   rows={4}
                   placeholder="Share a program update, announcement, or recruiting news..."
-                  className="w-full bg-white/[0.03] border border-white/[0.08] rounded-lg px-4 py-3 text-sm text-white placeholder-white/20 focus:outline-none focus:border-blue-500/40 resize-none"
+                  className="w-full bg-white/[0.03] border border-white/[0.08] rounded-lg px-4 py-3 text-sm text-white placeholder-white/20 focus:outline-none focus:border-[#C8102E]/40 resize-none"
                 />
                 <div className="mt-3 flex justify-end">
                   <button
@@ -346,7 +408,7 @@ export default function DashboardPage() {
                         setUpdateText("");
                       }
                     }}
-                    className="px-4 py-2 rounded-lg bg-[#003087] hover:bg-[#004bb5] text-white text-xs font-semibold transition-colors"
+                    className="px-4 py-2 rounded-lg bg-[#C8102E] hover:bg-[#a00d25] text-white text-xs font-semibold transition-colors"
                   >
                     Post Update
                   </button>
@@ -386,7 +448,7 @@ function EditableField({
         value={val}
         onChange={(e) => setVal(e.target.value)}
         placeholder={placeholder}
-        className="w-full bg-white/[0.03] border border-white/[0.08] rounded-lg px-3 py-2.5 text-sm text-white placeholder-white/20 focus:outline-none focus:border-blue-500/40"
+        className="w-full bg-white/[0.03] border border-white/[0.08] rounded-lg px-3 py-2.5 text-sm text-white placeholder-white/20 focus:outline-none focus:border-[#C8102E]/40"
       />
     </div>
   );
@@ -405,7 +467,7 @@ function EditableTextarea({
         value={val}
         onChange={(e) => setVal(e.target.value)}
         rows={rows}
-        className="w-full bg-white/[0.03] border border-white/[0.08] rounded-lg px-3 py-2.5 text-sm text-white placeholder-white/20 focus:outline-none focus:border-blue-500/40 resize-none"
+        className="w-full bg-white/[0.03] border border-white/[0.08] rounded-lg px-3 py-2.5 text-sm text-white placeholder-white/20 focus:outline-none focus:border-[#C8102E]/40 resize-none"
       />
     </div>
   );

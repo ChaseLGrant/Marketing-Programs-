@@ -115,7 +115,7 @@ export function RecruitFormSection() {
                 className={cn(
                   "w-8 h-8 rounded-full border flex items-center justify-center text-sm font-bold",
                   i === step
-                    ? "bg-[#003087] border-[#003087]"
+                    ? "bg-[#C8102E] border-[#C8102E]"
                     : i < step
                     ? "bg-blue-500/20 border-blue-500/40"
                     : "bg-white/[0.04] border-white/[0.08]"
@@ -131,7 +131,7 @@ export function RecruitFormSection() {
         {/* Progress bar */}
         <div className="w-full h-1 bg-white/[0.06] rounded-full mb-8">
           <div
-            className="h-1 bg-[#003087] rounded-full transition-all duration-500"
+            className="h-1 bg-[#C8102E] rounded-full transition-all duration-500"
             style={{ width: `${((step) / (steps.length - 1)) * 100}%` }}
           />
         </div>
@@ -212,7 +212,7 @@ export function RecruitFormSection() {
                 options={["No", "Yes — verbal", "Yes — signed", "Exploring options"]} />
               <Textarea label="Other schools you're considering (optional)" value={form.otherSchools} onChange={(v) => set("otherSchools", v)} placeholder="School A, School B..." rows={2} />
 
-              <div className="mt-4 p-4 rounded-xl bg-[#003087]/10 border border-[#003087]/20">
+              <div className="mt-4 p-4 rounded-xl bg-[#C8102E]/10 border border-[#C8102E]/20">
                 <p className="text-xs text-white/50 leading-relaxed">
                   By submitting this form, you consent to being contacted by Palomar College Baseball coaching staff regarding your recruiting interest. Information is stored locally and not shared with third parties.
                 </p>
@@ -232,14 +232,14 @@ export function RecruitFormSection() {
             {step < steps.length - 1 ? (
               <button
                 onClick={() => setStep((s) => Math.min(steps.length - 1, s + 1))}
-                className="px-6 py-2.5 rounded-lg bg-[#003087] hover:bg-[#004bb5] text-white text-sm font-semibold transition-colors"
+                className="px-6 py-2.5 rounded-lg bg-[#C8102E] hover:bg-[#a00d25] text-white text-sm font-semibold transition-colors"
               >
                 Continue →
               </button>
             ) : (
               <button
                 onClick={handleSubmit}
-                className="px-6 py-2.5 rounded-lg bg-[#003087] hover:bg-[#004bb5] text-white text-sm font-semibold transition-colors"
+                className="px-6 py-2.5 rounded-lg bg-[#C8102E] hover:bg-[#a00d25] text-white text-sm font-semibold transition-colors"
               >
                 Submit Application ✓
               </button>
@@ -264,7 +264,7 @@ function Field({
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
-        className="w-full px-4 py-2.5 rounded-lg bg-white/[0.04] border border-white/[0.08] text-white text-sm placeholder-white/20 focus:outline-none focus:border-blue-500/50 focus:bg-white/[0.06] transition-colors"
+        className="w-full px-4 py-2.5 rounded-lg bg-white/[0.04] border border-white/[0.08] text-white text-sm placeholder-white/20 focus:outline-none focus:border-[#C8102E]/50 focus:bg-white/[0.06] transition-colors"
       />
     </div>
   );
@@ -283,7 +283,7 @@ function Textarea({
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
         rows={rows}
-        className="w-full px-4 py-2.5 rounded-lg bg-white/[0.04] border border-white/[0.08] text-white text-sm placeholder-white/20 focus:outline-none focus:border-blue-500/50 focus:bg-white/[0.06] transition-colors resize-none"
+        className="w-full px-4 py-2.5 rounded-lg bg-white/[0.04] border border-white/[0.08] text-white text-sm placeholder-white/20 focus:outline-none focus:border-[#C8102E]/50 focus:bg-white/[0.06] transition-colors resize-none"
       />
     </div>
   );
@@ -300,7 +300,7 @@ function Select({
       <select
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="w-full px-4 py-2.5 rounded-lg bg-[#0d0d0d] border border-white/[0.08] text-white text-sm focus:outline-none focus:border-blue-500/50 transition-colors"
+        className="w-full px-4 py-2.5 rounded-lg bg-[#0d0d0d] border border-white/[0.08] text-white text-sm focus:outline-none focus:border-[#C8102E]/50 transition-colors"
       >
         <option value="">Select...</option>
         {options.map((o) => <option key={o} value={o}>{o}</option>)}

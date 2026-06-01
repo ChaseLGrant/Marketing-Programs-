@@ -672,6 +672,91 @@ export const programData = {
       },
     ],
   },
+
+  uniforms: {
+    intro:
+      "Every Palomar Baseball player is equipped with a complete set of program gear upon joining the team. We take pride in how we look on and off the field — representing our program starts before the first pitch.",
+    uniformPhotos: [
+      {
+        label: "Home Whites",
+        description: "Official home game uniform — white with red and black details.",
+        image: null,
+      },
+      {
+        label: "Away Grays",
+        description: "Official away uniform — gray with red and black accents.",
+        image: null,
+      },
+      {
+        label: "Alternate Black",
+        description: "Black alternate jersey worn for select games and special events.",
+        image: null,
+      },
+      {
+        label: "Practice Gear",
+        description: "Daily practice jerseys, shorts, and warmup layers.",
+        image: null,
+      },
+    ],
+    gearItems: [
+      {
+        name: "Game Helmet",
+        icon: "⛑️",
+        description: "Rawlings batting helmet in team colors. Provided and maintained by the program.",
+        provided: true,
+        image: null,
+      },
+      {
+        name: "Batting Gloves",
+        icon: "🧤",
+        description: "Program-issued batting gloves for game use. Players may use personal gloves in practice.",
+        provided: true,
+        image: null,
+      },
+      {
+        name: "Team Bag",
+        icon: "🎒",
+        description: "Official Palomar Baseball equipment bag — holds cleats, helmet, gloves, and personal gear.",
+        provided: true,
+        image: null,
+      },
+      {
+        name: "Cleats",
+        icon: "👟",
+        description: "Players supply their own metal or molded cleats meeting CCCAA regulations.",
+        provided: false,
+        image: null,
+      },
+      {
+        name: "Compression Gear",
+        icon: "🩱",
+        description: "Program-branded undershirt and sliding shorts. Available in team store.",
+        provided: false,
+        image: null,
+      },
+      {
+        name: "Warmup Jacket",
+        icon: "🧥",
+        description: "Official Palomar Baseball dugout jacket included in the full gear package.",
+        provided: true,
+        image: null,
+      },
+    ],
+    included: [
+      "Home game jersey (white)",
+      "Away game jersey (gray)",
+      "Alternate black jersey",
+      "Game pants (2 pair)",
+      "Practice jersey (2)",
+      "Practice shorts",
+      "Program batting helmet",
+      "Team equipment bag",
+      "Dugout jacket",
+      "Batting gloves (1 pair)",
+      "Palomar cap (2)",
+      "Socks & belt (team colors)",
+    ],
+  },
 };
 
 export type ProgramData = typeof programData;

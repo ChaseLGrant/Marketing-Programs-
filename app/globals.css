@@ -2,14 +2,13 @@
 
 :root {
   --background: #0a0a0a;
-  --foreground: #fafafa;
-  --card: #111111;
-  --primary: #003087;
-  --secondary: #C8102E;
-  --accent: #FFD700;
-  --muted: #1a1a1a;
-  --muted-foreground: #888888;
+  --foreground: #ffffff;
+  --card: #141414;
+  --primary: #C8102E;
+  --primary-dark: #a00d25;
+  --primary-light: #e8193b;
   --border: #2a2a2a;
+  --border-subtle: rgba(255,255,255,0.06);
 }
 
 @theme inline {
@@ -19,15 +18,9 @@
   --font-mono: var(--font-geist-mono);
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
+* { box-sizing: border-box; padding: 0; margin: 0; }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
 body {
   background: var(--background);
@@ -36,36 +29,45 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: #0a0a0a; }
-::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: #444; }
+::-webkit-scrollbar-thumb { background: #333; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #555; }
 
-.gradient-text {
-  background: linear-gradient(135deg, #ffffff 0%, #aaaaaa 100%);
+/* Typography helpers */
+.section-eyebrow {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #C8102E;
+}
+
+.gradient-text-red {
+  background: linear-gradient(135deg, #ff4d6d 0%, #C8102E 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-.gradient-text-gold {
-  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+/* Card interactions */
+.card-hover {
+  transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
 }
-
-.card-glow {
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-}
-
-.card-glow:hover {
-  box-shadow: 0 0 0 1px rgba(255,255,255,0.08), 0 8px 40px rgba(0,0,0,0.6), 0 0 30px rgba(0,48,135,0.15);
+.card-hover:hover {
+  border-color: rgba(200,16,46,0.25);
   transform: translateY(-2px);
 }
 
-.gradient-border {
-  background: linear-gradient(#111, #111) padding-box,
-    linear-gradient(135deg, rgba(0,48,135,0.8), rgba(200,16,46,0.8)) border-box;
-  border: 1px solid transparent;
+/* Red glow on hover */
+.card-hover-red:hover {
+  box-shadow: 0 0 0 1px rgba(200,16,46,0.2), 0 8px 32px rgba(0,0,0,0.5);
+}
+
+/* Section divider */
+.section-divider {
+  width: 48px;
+  height: 3px;
+  background: #C8102E;
+  border-radius: 2px;
 }

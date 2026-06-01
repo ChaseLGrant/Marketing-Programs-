@@ -3,77 +3,55 @@ import { programData } from "@/lib/programData";
 import { SectionHeader } from "@/components/ui/section-header";
 import { cn } from "@/lib/utils";
 
-const typeColors: Record<string, { bg: string; border: string; text: string; dot: string }> = {
-  performance: { bg: "bg-orange-500/10", border: "border-orange-500/20", text: "text-orange-400", dot: "bg-orange-400" },
-  academic: { bg: "bg-blue-500/10", border: "border-blue-500/20", text: "text-blue-400", dot: "bg-blue-400" },
-  development: { bg: "bg-purple-500/10", border: "border-purple-500/20", text: "text-purple-400", dot: "bg-purple-400" },
-  practice: { bg: "bg-yellow-500/10", border: "border-yellow-500/20", text: "text-yellow-400", dot: "bg-yellow-400" },
-  recovery: { bg: "bg-teal-500/10", border: "border-teal-500/20", text: "text-teal-400", dot: "bg-teal-400" },
-  competition: { bg: "bg-red-500/10", border: "border-red-500/20", text: "text-red-400", dot: "bg-red-400" },
+const typeConfig: Record<string, { label: string; dot: string; bg: string; border: string }> = {
+  performance: { label: "Performance", dot: "bg-orange-400", bg: "bg-orange-500/[0.06]", border: "border-orange-500/15" },
+  academic:    { label: "Academic",    dot: "bg-blue-400",   bg: "bg-blue-500/[0.06]",   border: "border-blue-500/15" },
+  development: { label: "Development", dot: "bg-purple-400", bg: "bg-purple-500/[0.06]", border: "border-purple-500/15" },
+  practice:    { label: "Practice",    dot: "bg-yellow-400", bg: "bg-yellow-500/[0.06]", border: "border-yellow-500/15" },
+  recovery:    { label: "Recovery",    dot: "bg-teal-400",   bg: "bg-teal-500/[0.06]",   border: "border-teal-500/15" },
+  competition: { label: "Competition", dot: "bg-[#C8102E]",  bg: "bg-[#C8102E]/[0.06]",  border: "border-[#C8102E]/15" },
 };
 
 export function DailyScheduleSection() {
   const { dailySchedule } = programData;
 
   return (
-    <section
-      id="experience"
-      className="py-28 px-4 sm:px-6"
-      style={{ background: "linear-gradient(180deg, #070a0f 0%, #0a0a0a 100%)" }}
-    >
-      <div className="max-w-4xl mx-auto">
+    <section id="experience" className="py-32 px-5 sm:px-8 bg-[#0d0005]">
+      <div className="max-w-3xl mx-auto">
         <SectionHeader
           eyebrow="The Palomar Experience"
           title="A Day In The Life"
           subtitle="This is what your daily schedule looks like as a Palomar baseball player. It's demanding by design."
         />
 
-        {/* Timeline */}
         <div className="relative">
-          {/* Vertical line */}
-          <div className="absolute left-[100px] sm:left-[120px] top-0 bottom-0 w-px bg-white/[0.07]" />
+          {/* Timeline line */}
+          <div className="absolute left-[108px] sm:left-[128px] top-3 bottom-3 w-px bg-white/[0.06]" />
 
-          <div className="space-y-6">
+          <div className="space-y-5">
             {dailySchedule.map((item, i) => {
-              const colors = typeColors[item.type] || typeColors.practice;
+              const config = typeConfig[item.type] || typeConfig.practice;
               return (
-                <div key={i} className="flex items-start gap-0 relative">
+                <div key={i} className="flex items-start gap-0">
                   {/* Time */}
-                  <div className="w-[100px] sm:w-[120px] flex-shrink-0 pt-1">
-                    <span className="text-xs font-bold text-white/40 tracking-wide">
-                      {item.time}
-                    </span>
+                  <div className="w-[108px] sm:w-[128px] flex-shrink-0 pt-4 pr-4">
+                    <span className="text-xs font-bold text-white/35 leading-tight">{item.time}</span>
                   </div>
 
-                  {/* Dot on line */}
-                  <div className="flex-shrink-0 relative flex flex-col items-center mt-2 -ml-[4px] z-10">
-                    <div className={cn("w-2 h-2 rounded-full", colors.dot)} />
+                  {/* Dot */}
+                  <div className="flex-shrink-0 mt-[18px] z-10 -ml-[3px]">
+                    <div className={cn("w-1.5 h-1.5 rounded-full", config.dot)} />
                   </div>
 
                   {/* Card */}
-                  <div
-                    className={cn(
-                      "ml-6 flex-1 rounded-xl p-4 border",
-                      colors.bg,
-                      colors.border,
-                      "hover:opacity-90 transition-opacity"
-                    )}
-                  >
-                    <div className="flex items-start justify-between gap-4">
-                      <div>
-                        <h4 className="font-bold text-white text-sm sm:text-base">{item.activity}</h4>
-                        <p className="text-xs text-white/50 mt-1 leading-relaxed">{item.description}</p>
+                  <div className={cn("ml-5 flex-1 rounded-2xl border p-4 sm:p-5", config.bg, config.border)}>
+                    <div className="flex items-start justify-between gap-3">
+                      <div className="flex-1">
+                        <h4 className="font-bold text-white text-sm mb-1">{item.activity}</h4>
+                        <p className="text-xs text-white/45 leading-relaxed">{item.description}</p>
                       </div>
-                      <span
-                        className={cn(
-                          "text-xs font-semibold tracking-wide uppercase px-2 py-1 rounded-md flex-shrink-0",
-                          colors.bg,
-                          colors.text,
-                          "border",
-                          colors.border
-                        )}
-                      >
-                        {item.type}
+                      <span className={cn("text-[0.6rem] font-bold tracking-[0.12em] uppercase px-2 py-1 rounded-lg flex-shrink-0", config.bg, config.border, "border text-white/40")}>
+                        {config.label}
                       </span>
                     </div>
                   </div>
@@ -83,12 +61,9 @@ export function DailyScheduleSection() {
           </div>
         </div>
 
-        {/* Bottom note */}
-        <div className="mt-10 text-center">
-          <p className="text-sm text-white/30 italic">
-            Schedule varies by season. This represents a typical in-season week.
-          </p>
-        </div>
+        <p className="text-center text-xs text-white/20 mt-10 italic">
+          Schedule varies by season. Representative of a typical in-season week.
+        </p>
       </div>
     </section>
   );
