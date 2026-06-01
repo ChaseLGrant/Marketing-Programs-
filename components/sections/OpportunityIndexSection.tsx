@@ -12,7 +12,7 @@ export function OpportunityIndexSection() {
   const { opportunityIndex } = programData;
 
   return (
-    <section id="opportunities" className="py-32 px-5 sm:px-8 bg-[#0a0a0a]">
+    <section id="opportunities" className="py-32 px-5 sm:px-8 section-alt">
       <div className="max-w-6xl mx-auto">
         <SectionHeader
           eyebrow="Opportunity Index"
@@ -21,11 +21,11 @@ export function OpportunityIndexSection() {
         />
 
         {/* Live badge */}
-        <div className="flex justify-center mb-10">
-          <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.04] border border-white/[0.08]">
+        <div className="flex justify-center mb-12">
+          <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/[0.04] border border-white/[0.07]">
             <div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
             <span className="text-xs text-white/45">
-              Last updated: <span className="text-white/70 font-semibold">{opportunityIndex.lastUpdated}</span>
+              Last updated: <span className="text-white/65 font-semibold">{opportunityIndex.lastUpdated}</span>
             </span>
           </div>
         </div>
@@ -33,25 +33,28 @@ export function OpportunityIndexSection() {
         {/* Stats grid */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 mb-10">
           {opportunityIndex.cards.map((card, i) => (
-            <div key={i} className="rounded-2xl border border-white/[0.07] bg-[#141414] p-5 text-center card-hover">
-              <div className="text-3xl font-black text-white mb-1">{card.value}</div>
-              <div className="text-xs font-bold text-white/60 mb-1 leading-tight">{card.label}</div>
+            <div key={i} className="card p-5 text-center">
+              <div className="text-4xl font-black text-white mb-1">{card.value}</div>
+              <div className="text-xs font-semibold text-white/55 mb-1 leading-tight">{card.label}</div>
               <div className="text-[0.6rem] text-white/25">{card.sublabel}</div>
             </div>
           ))}
         </div>
 
         {/* Priority table */}
-        <div className="rounded-2xl border border-white/[0.07] bg-[#141414] overflow-hidden">
+        <div className="card overflow-hidden">
           <div className="px-6 py-4 border-b border-white/[0.06] flex items-center justify-between">
             <span className="font-bold text-white text-sm">Recruiting Priorities</span>
             <span className="text-xs text-white/25">{opportunityIndex.note}</span>
           </div>
-          <div className="divide-y divide-white/[0.04]">
+          <div>
             {opportunityIndex.priorities.map((p, i) => {
               const colors = priorityColors[p.priority] || priorityColors.Moderate;
               return (
-                <div key={i} className="flex items-center gap-4 px-6 py-4 hover:bg-white/[0.02] transition-colors">
+                <div
+                  key={i}
+                  className={`flex items-center gap-4 px-6 py-4 ${i % 2 === 1 ? "bg-white/[0.02]" : ""}`}
+                >
                   <div className="w-36 flex-shrink-0">
                     <span className="font-bold text-white text-sm">{p.position}</span>
                   </div>
@@ -65,9 +68,9 @@ export function OpportunityIndexSection() {
           </div>
         </div>
 
-        <div className="mt-8 text-center">
-          <a href="#recruit-form" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#C8102E] hover:bg-[#a00d25] text-white text-sm font-bold transition-colors">
-            Submit Your Information →
+        <div className="mt-10 text-center">
+          <a href="#recruit-form" className="btn-primary px-8 py-4">
+            Submit Your Information
           </a>
         </div>
       </div>

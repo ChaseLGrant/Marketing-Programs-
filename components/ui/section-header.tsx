@@ -15,12 +15,12 @@ export function SectionHeader({ eyebrow, title, subtitle, centered = true, class
       {eyebrow && (
         <p className="section-eyebrow mb-4">{eyebrow}</p>
       )}
-      <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-white mb-4 leading-tight">
+      <h2 className="text-4xl sm:text-5xl font-black tracking-tight text-white mb-5 leading-tight">
         {title}
       </h2>
-      <div className={cn("section-divider mb-5", centered && "mx-auto")} />
+      <div className={cn("divider mb-6", centered && "mx-auto")} />
       {subtitle && (
-        <p className="text-base text-white/45 max-w-2xl leading-relaxed mx-auto">
+        <p className={cn("text-base text-white/45 max-w-xl leading-relaxed font-light", centered && "mx-auto")}>
           {subtitle}
         </p>
       )}

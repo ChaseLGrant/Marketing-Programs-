@@ -18,7 +18,7 @@ export function FAQSection() {
   };
 
   return (
-    <section id="faq" className="py-32 px-5 sm:px-8 bg-[#0a0a0a]">
+    <section id="faq" className="py-32 px-5 sm:px-8 section-alt">
       <div className="max-w-3xl mx-auto">
         <SectionHeader
           eyebrow="FAQ"
@@ -26,29 +26,28 @@ export function FAQSection() {
           subtitle="Everything a recruit or their family typically wants to know — answered."
         />
 
-        <div className="space-y-8">
+        <div className="space-y-10">
           {faqs.map((category) => (
             <div key={category.category}>
-              <div className="flex items-center gap-3 mb-4">
+              <div className="flex items-center gap-3 mb-5">
                 <span className="section-eyebrow">{category.category}</span>
                 <div className="flex-1 h-px bg-white/[0.06]" />
               </div>
-              <div className="space-y-2">
+              <div>
                 {category.questions.map((item, j) => {
                   const key = `${category.category}-${j}`;
                   const isOpen = openItems.has(key);
                   return (
-                    <div key={j} className={cn("rounded-2xl border bg-[#141414] overflow-hidden transition-colors", isOpen ? "border-[#C8102E]/20" : "border-white/[0.07]")}>
+                    <div key={j} className="border-b border-white/[0.06]">
                       <button
                         onClick={() => toggle(key)}
-                        className="w-full flex items-center justify-between gap-4 px-6 py-4 text-left"
+                        className="w-full flex items-center justify-between gap-4 py-5 text-left"
                       >
-                        <span className="font-semibold text-white text-sm">{item.q}</span>
+                        <span className="font-semibold text-white text-sm leading-snug">{item.q}</span>
                         <span className={cn("text-white/35 flex-shrink-0 transition-transform duration-200 text-xl font-light", isOpen ? "rotate-45" : "")}>+</span>
                       </button>
                       {isOpen && (
-                        <div className="px-6 pb-5">
-                          <div className="h-px bg-white/[0.06] mb-4" />
+                        <div className="pb-5 border-l-2 border-[#C8102E] pl-4 ml-0 mb-2">
                           <p className="text-sm text-white/50 leading-relaxed">{item.a}</p>
                         </div>
                       )}
@@ -60,10 +59,10 @@ export function FAQSection() {
           ))}
         </div>
 
-        <div className="mt-12 rounded-2xl border border-white/[0.07] bg-[#141414] p-8 text-center">
-          <p className="text-white/45 text-sm mb-4">Still have questions? Reach out directly.</p>
-          <a href="#recruit-form" className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#C8102E] hover:bg-[#a00d25] text-white text-sm font-bold transition-colors">
-            Contact The Coaching Staff →
+        <div className="mt-14 text-center">
+          <p className="text-white/35 text-sm mb-5">Still have questions? Reach out directly.</p>
+          <a href="#recruit-form" className="btn-primary px-8 py-4">
+            Contact The Coaching Staff
           </a>
         </div>
       </div>
