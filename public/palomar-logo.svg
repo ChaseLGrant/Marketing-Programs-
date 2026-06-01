@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 320" fill="none">
+  <!-- Comet star body: 4 asymmetric points. Right point is the long comet tail -->
+  <!-- Points: center ~(210,160), top(190,25), right(500,155), bottom(225,295), left(30,165) -->
+  <polygon
+    points="190,25  240,138  500,155  240,172  225,295  175,172  30,155  175,138"
+    fill="#7a7a7a"
+  />
+  <!-- Red outline / border — slightly inset star for the stroke effect -->
+  <polygon
+    points="190,25  240,138  500,155  240,172  225,295  175,172  30,155  175,138"
+    fill="none"
+    stroke="#C8102E"
+    stroke-width="8"
+    stroke-linejoin="round"
+  />
+  <!-- Inner highlight line from top-left toward bottom-right through the star -->
+  <line x1="175" y1="138" x2="240" y2="172" stroke="#C8102E" stroke-width="3" opacity="0.4"/>
+
+  <!-- Large bold P, centered on star -->
+  <text
+    x="160"
+    y="218"
+    font-family="'Arial Black', 'Helvetica Neue', Impact, sans-serif"
+    font-weight="900"
+    font-size="170"
+    fill="#C8102E"
+  >P</text>
+</svg>

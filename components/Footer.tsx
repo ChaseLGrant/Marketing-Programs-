@@ -12,7 +12,7 @@ export function Footer() {
           {/* Brand */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-10 h-10 rounded-lg bg-[#C8102E] flex items-center justify-center text-sm font-black text-white">P</div>
+              <img src="/palomar-logo.svg" alt="Palomar Comets" className="h-10 w-auto" />
               <div>
                 <div className="font-black text-white">{program.shortName}</div>
                 <div className="text-xs text-white/35">{program.location}</div>

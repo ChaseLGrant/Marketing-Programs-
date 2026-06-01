@@ -39,9 +39,11 @@ export function Navigation() {
 
           {/* Logo */}
           <a href="#hero" className="flex items-center gap-3 flex-shrink-0">
-            <div className="w-8 h-8 rounded bg-[#C8102E] flex items-center justify-center text-xs font-black text-white tracking-tight">
-              P
-            </div>
+            <img
+              src="/palomar-logo.svg"
+              alt="Palomar Comets"
+              className="h-9 w-auto"
+            />
             <span className="font-bold text-white tracking-tight text-sm hidden sm:block">
               Palomar Baseball
             </span>

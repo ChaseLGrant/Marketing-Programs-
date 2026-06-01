@@ -77,8 +77,17 @@ export function HeroSection() {
         }} />
 
       <div className="relative z-10 text-center px-5 sm:px-8 max-w-5xl mx-auto pt-16">
+        {/* Program logo */}
+        <div className="flex justify-center mb-8">
+          <img
+            src="/palomar-logo.svg"
+            alt="Palomar Comets"
+            className="h-24 sm:h-32 w-auto drop-shadow-2xl"
+          />
+        </div>
+
         {/* Eyebrow line */}
-        <div className="flex items-center justify-center gap-4 mb-10">
+        <div className="flex items-center justify-center gap-4 mb-6">
           <div className="h-px flex-1 max-w-16 bg-gradient-to-r from-transparent to-[#C8102E]/40" />
           <span className="text-[0.65rem] font-bold tracking-[0.3em] uppercase text-[#C8102E]">
             {program.conference}
