@@ -478,8 +478,8 @@ export const programData = {
     note: "Roster openings reflect departing sophomores from the 2026 CCCAA State Finals team. Updated for 2026–27 recruiting class.",
     cards: [
       { label: "Roster Size", value: "32", sublabel: "Active players — 2026 season", editable: true },
-      { label: "Sophomores Departing", value: "~15", sublabel: "Ineligible to return in 2027", editable: true },
-      { label: "Open Spots", value: "12–16", sublabel: "Estimated 2027 class size", editable: true },
+      { label: "Sophomores Departing", value: "17", sublabel: "Ineligible to return in 2027", editable: true },
+      { label: "Open Spots", value: "15–17", sublabel: "2027 recruiting class target", editable: true },
       { label: "Conf. Titles", value: "4", sublabel: "Straight PCAC championships", editable: false },
       { label: "2026 Record", value: "43–6", sublabel: "State Finals appearance", editable: false },
       { label: "Draft Picks '23", value: "3", sublabel: "MLB Draft in one class", editable: false },
