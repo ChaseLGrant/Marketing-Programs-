@@ -80,7 +80,7 @@ export function HeroSection() {
         {/* Program logo */}
         <div className="flex justify-center mb-8">
           <img
-            src="/palomar-logo.svg"
+            src="/palomar-logo.png"
             alt="Palomar Comets"
             className="h-24 sm:h-32 w-auto drop-shadow-2xl"
           />

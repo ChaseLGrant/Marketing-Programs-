@@ -40,7 +40,7 @@ export function Navigation() {
           {/* Logo */}
           <a href="#hero" className="flex items-center gap-3 flex-shrink-0">
             <img
-              src="/palomar-logo.svg"
+              src="/palomar-logo.png"
               alt="Palomar Comets"
               className="h-9 w-auto"
             />
