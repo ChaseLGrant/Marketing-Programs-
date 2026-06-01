@@ -87,11 +87,11 @@ export const programData = {
     },
     {
       id: 2,
-      name: "Assistant Coach / Pitching",
+      name: "Dylan Tye",
       role: "Pitching Coach",
-      nameDisplay: "Coach [Name]",
+      nameDisplay: "Dylan Tye",
       photo: null,
-      bio: "Our pitching coach brings extensive knowledge of modern pitching development, including data-driven metrics, arm care protocols, and mental performance. He works closely with every arm on the roster to maximize velocity, command, and durability.",
+      bio: "Dylan Tye grew up in San Diego and graduated from Scripps Ranch High School before pitching at Concordia University Irvine and earning his degree in Psychology from the University of Wisconsin-Parkside in 2017. He brings a well-rounded development background — including four years coaching with TB SoCal, one of the premier travel organizations on the West Coast, and a stint as volunteer assistant at Cal State San Marcos. Now in his third year with the Palomar staff, Tye combines modern pitching theory with a deep understanding of the mental side of performance.",
       recruitingPhilosophy:
         "I look for pitchers who understand their stuff and compete with conviction. You don't need a 90+ fastball to thrive here — you need the ability to execute, adapt, and compete. We'll develop the rest.",
       valuesInAthletes: [
