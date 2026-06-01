@@ -1,28 +1,36 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 320" fill="none">
-  <!-- Comet star body: 4 asymmetric points. Right point is the long comet tail -->
-  <!-- Points: center ~(210,160), top(190,25), right(500,155), bottom(225,295), left(30,165) -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 380" fill="none">
+  <!-- Outer star/comet shape - gray fill -->
   <polygon
-    points="190,25  240,138  500,155  240,172  225,295  175,172  30,155  175,138"
-    fill="#7a7a7a"
+    points="168,12  248,125  512,188  248,240  192,368  118,240  18,188  118,125"
+    fill="#8c8c8c"
   />
-  <!-- Red outline / border — slightly inset star for the stroke effect -->
+  <!-- Red border stroke on star -->
   <polygon
-    points="190,25  240,138  500,155  240,172  225,295  175,172  30,155  175,138"
+    points="168,12  248,125  512,188  248,240  192,368  118,240  18,188  118,125"
     fill="none"
     stroke="#C8102E"
-    stroke-width="8"
+    stroke-width="9"
     stroke-linejoin="round"
   />
-  <!-- Inner highlight line from top-left toward bottom-right through the star -->
-  <line x1="175" y1="138" x2="240" y2="172" stroke="#C8102E" stroke-width="3" opacity="0.4"/>
-
-  <!-- Large bold P, centered on star -->
+  <!-- Inner darker accent lines to give depth (the gray inner triangle visible in logo) -->
+  <polygon
+    points="168,12  222,148  118,125"
+    fill="#6a6a6a"
+    opacity="0.6"
+  />
+  <polygon
+    points="192,368  222,228  118,240"
+    fill="#6a6a6a"
+    opacity="0.5"
+  />
+  <!-- Red P — bold, centered on star body -->
   <text
-    x="160"
-    y="218"
-    font-family="'Arial Black', 'Helvetica Neue', Impact, sans-serif"
+    x="118"
+    y="282"
+    font-family="'Arial Black', 'Helvetica Neue', Arial, sans-serif"
     font-weight="900"
-    font-size="170"
+    font-size="210"
     fill="#C8102E"
+    letter-spacing="-8"
   >P</text>
 </svg>
