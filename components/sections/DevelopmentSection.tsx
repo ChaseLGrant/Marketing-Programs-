@@ -6,7 +6,7 @@ export function DevelopmentSection() {
   const { development } = programData;
 
   return (
-    <section id="development" className="py-32 px-5 sm:px-8 bg-[#0a0a0a]">
+    <section id="development" className="py-32 px-5 sm:px-8 section-alt">
       <div className="max-w-6xl mx-auto">
         <SectionHeader
           eyebrow="Player Development"
@@ -15,11 +15,13 @@ export function DevelopmentSection() {
         />
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
-          {development.areas.map((area) => (
-            <div key={area.id} className="rounded-2xl border border-white/[0.07] bg-[#141414] p-6 flex flex-col card-hover">
+          {development.areas.map((area, idx) => (
+            <div key={area.id} className="card card-interactive p-6 flex flex-col">
               <div className="flex items-center gap-3 mb-5">
-                <div className="w-11 h-11 rounded-xl bg-[#C8102E]/10 border border-[#C8102E]/20 flex items-center justify-center text-xl">
-                  {area.icon}
+                <div className="w-7 h-7 rounded-full bg-[#C8102E] flex items-center justify-center flex-shrink-0">
+                  <span className="text-[0.6rem] font-black text-white tabular-nums">
+                    {String(idx + 1).padStart(2, "0")}
+                  </span>
                 </div>
                 <h3 className="font-bold text-white text-sm leading-tight">{area.title}</h3>
               </div>
@@ -54,7 +56,7 @@ export function DevelopmentSection() {
         </div>
 
         <p className="text-center text-xs text-white/20 italic mt-8">
-          ⚠ All metrics are sample data and representative ranges only. Individual results vary. These figures do not represent guarantees.
+          All metrics are sample data and representative ranges only. Individual results vary. These figures do not represent guarantees.
         </p>
       </div>
     </section>

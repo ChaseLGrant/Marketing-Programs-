@@ -4,19 +4,16 @@ import { SectionHeader } from "@/components/ui/section-header";
 import { cn } from "@/lib/utils";
 
 type FormData = {
-  // Step 1
   firstName: string;
   lastName: string;
   email: string;
   phone: string;
   hometown: string;
   gradYear: string;
-  // Step 2
   gpa: string;
   satAct: string;
   intendedMajor: string;
   currentSchool: string;
-  // Step 3
   position: string;
   height: string;
   weight: string;
@@ -25,14 +22,11 @@ type FormData = {
   velocity: string;
   exitVelo: string;
   sixtyTime: string;
-  // Step 4
   highlightVideo: string;
   fullGameVideo: string;
   additionalLinks: string;
-  // Step 5
   goals: string;
   whyPalomar: string;
-  // Step 6
   enrollTerm: string;
   committedElsewhere: string;
   otherSchools: string;
@@ -48,12 +42,12 @@ const EMPTY_FORM: FormData = {
 };
 
 const steps = [
-  { title: "Athlete Info", icon: "👤" },
-  { title: "Academic Info", icon: "📚" },
-  { title: "Athletic Metrics", icon: "⚾" },
-  { title: "Video Links", icon: "🎥" },
-  { title: "Your Goals", icon: "🎯" },
-  { title: "Timeline", icon: "📅" },
+  { title: "Athlete Info", emoji: "👤" },
+  { title: "Academic Info", emoji: "📚" },
+  { title: "Athletic Metrics", emoji: "⚾" },
+  { title: "Video Links", emoji: "🎥" },
+  { title: "Your Goals", emoji: "🎯" },
+  { title: "Timeline", emoji: "📅" },
 ];
 
 export function RecruitFormSection() {
@@ -65,24 +59,26 @@ export function RecruitFormSection() {
     setForm((prev) => ({ ...prev, [key]: val }));
 
   const handleSubmit = () => {
-    console.log("🎯 Palomar Baseball Recruit Inquiry:", form);
+    console.log("Palomar Baseball Recruit Inquiry:", form);
     setSubmitted(true);
   };
 
   if (submitted) {
     return (
-      <section id="recruit-form" className="py-28 px-4 sm:px-6 bg-[#0a0a0a]">
+      <section id="recruit-form" className="py-32 px-5 sm:px-8 section-alt">
         <div className="max-w-2xl mx-auto text-center">
-          <div className="w-20 h-20 rounded-full bg-green-500/15 border border-green-500/30 flex items-center justify-center text-4xl mx-auto mb-6">
-            ✓
+          <div className="w-16 h-16 rounded-full bg-[#C8102E]/15 border border-[#C8102E]/30 flex items-center justify-center mx-auto mb-8">
+            <svg width="24" height="20" viewBox="0 0 24 20" fill="none">
+              <path d="M2 10L9 17L22 2" stroke="#C8102E" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
           </div>
-          <h2 className="text-3xl font-bold text-white mb-4">Inquiry Received!</h2>
-          <p className="text-white/50 mb-8">
+          <h2 className="text-3xl font-black text-white mb-4">Inquiry Received</h2>
+          <p className="text-white/45 mb-10 leading-relaxed">
             Thank you for your interest in Palomar Baseball. Our coaching staff will review your information and reach out if there&apos;s potential interest.
           </p>
           <button
             onClick={() => { setSubmitted(false); setForm(EMPTY_FORM); setStep(0); }}
-            className="px-6 py-3 rounded-lg border border-white/20 text-white text-sm hover:bg-white/5 transition-colors"
+            className="btn-ghost"
           >
             Submit Another Inquiry
           </button>
@@ -92,7 +88,7 @@ export function RecruitFormSection() {
   }
 
   return (
-    <section id="recruit-form" className="py-28 px-4 sm:px-6 bg-[#0a0a0a]">
+    <section id="recruit-form" className="py-32 px-5 sm:px-8 section-alt">
       <div className="max-w-2xl mx-auto">
         <SectionHeader
           eyebrow="Recruiting Inquiry"
@@ -107,21 +103,25 @@ export function RecruitFormSection() {
               key={i}
               onClick={() => i < step && setStep(i)}
               className={cn(
-                "flex flex-col items-center gap-1 flex-shrink-0 px-2 transition-colors",
-                i === step ? "text-white" : i < step ? "text-blue-400 cursor-pointer" : "text-white/20 cursor-default"
+                "flex flex-col items-center gap-1.5 flex-shrink-0 px-2 transition-colors",
+                i === step ? "text-white" : i < step ? "text-[#C8102E] cursor-pointer" : "text-white/20 cursor-default"
               )}
             >
               <div
                 className={cn(
-                  "w-8 h-8 rounded-full border flex items-center justify-center text-sm font-bold",
+                  "w-8 h-8 rounded-full border-2 flex items-center justify-center text-xs font-black",
                   i === step
-                    ? "bg-[#C8102E] border-[#C8102E]"
+                    ? "bg-[#C8102E] border-[#C8102E] text-white"
                     : i < step
-                    ? "bg-blue-500/20 border-blue-500/40"
-                    : "bg-white/[0.04] border-white/[0.08]"
+                    ? "bg-[#C8102E]/15 border-[#C8102E]/40 text-[#C8102E]"
+                    : "bg-transparent border-white/[0.1] text-white/20"
                 )}
               >
-                {i < step ? "✓" : i + 1}
+                {i < step ? (
+                  <svg width="10" height="8" viewBox="0 0 10 8" fill="none">
+                    <path d="M1 4L3.5 6.5L9 1" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+                  </svg>
+                ) : i + 1}
               </div>
               <span className="text-[10px] font-medium hidden sm:block">{s.title}</span>
             </button>
@@ -129,16 +129,16 @@ export function RecruitFormSection() {
         </div>
 
         {/* Progress bar */}
-        <div className="w-full h-1 bg-white/[0.06] rounded-full mb-8">
+        <div className="w-full h-px bg-white/[0.06] mb-10">
           <div
-            className="h-1 bg-[#C8102E] rounded-full transition-all duration-500"
-            style={{ width: `${((step) / (steps.length - 1)) * 100}%` }}
+            className="h-px bg-[#C8102E] transition-all duration-500"
+            style={{ width: `${(step / (steps.length - 1)) * 100}%` }}
           />
         </div>
 
-        <div className="rounded-2xl border border-white/[0.06] bg-[#0d0d0d] p-6 sm:p-8">
-          <div className="flex items-center gap-3 mb-6">
-            <span className="text-2xl">{steps[step].icon}</span>
+        <div className="card p-6 sm:p-8">
+          <div className="flex items-center gap-3 mb-8">
+            <span className="text-2xl">{steps[step].emoji}</span>
             <h3 className="font-bold text-white text-xl">{steps[step].title}</h3>
           </div>
 
@@ -173,7 +173,7 @@ export function RecruitFormSection() {
               <Select label="Primary Position *" value={form.position} onChange={(v) => set("position", v)}
                 options={["Pitcher", "Catcher", "First Base", "Second Base", "Shortstop", "Third Base", "Left Field", "Center Field", "Right Field", "DH/Utility"]} />
               <div className="grid grid-cols-2 gap-4">
-                <Field label="Height" value={form.height} onChange={(v) => set("height", v)} placeholder="e.g. 6'1&quot;" />
+                <Field label="Height" value={form.height} onChange={(v) => set("height", v)} placeholder="6'1&quot;" />
                 <Field label="Weight (lbs)" value={form.weight} onChange={(v) => set("weight", v)} placeholder="185" />
               </div>
               <div className="grid grid-cols-2 gap-4">
@@ -212,8 +212,8 @@ export function RecruitFormSection() {
                 options={["No", "Yes — verbal", "Yes — signed", "Exploring options"]} />
               <Textarea label="Other schools you're considering (optional)" value={form.otherSchools} onChange={(v) => set("otherSchools", v)} placeholder="School A, School B..." rows={2} />
 
-              <div className="mt-4 p-4 rounded-xl bg-[#C8102E]/10 border border-[#C8102E]/20">
-                <p className="text-xs text-white/50 leading-relaxed">
+              <div className="mt-4 p-4 rounded-lg border border-white/[0.06] bg-white/[0.02]">
+                <p className="text-xs text-white/35 leading-relaxed">
                   By submitting this form, you consent to being contacted by Palomar College Baseball coaching staff regarding your recruiting interest. Information is stored locally and not shared with third parties.
                 </p>
               </div>
@@ -221,27 +221,27 @@ export function RecruitFormSection() {
           )}
 
           {/* Navigation */}
-          <div className="flex items-center justify-between mt-8">
+          <div className="flex items-center justify-between mt-10">
             <button
               onClick={() => setStep((s) => Math.max(0, s - 1))}
               disabled={step === 0}
-              className="px-5 py-2.5 rounded-lg border border-white/20 text-white text-sm font-medium hover:bg-white/5 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+              className="btn-ghost disabled:opacity-30 disabled:cursor-not-allowed"
             >
               Back
             </button>
             {step < steps.length - 1 ? (
               <button
                 onClick={() => setStep((s) => Math.min(steps.length - 1, s + 1))}
-                className="px-6 py-2.5 rounded-lg bg-[#C8102E] hover:bg-[#a00d25] text-white text-sm font-semibold transition-colors"
+                className="btn-primary"
               >
-                Continue →
+                Continue
               </button>
             ) : (
               <button
                 onClick={handleSubmit}
-                className="px-6 py-2.5 rounded-lg bg-[#C8102E] hover:bg-[#a00d25] text-white text-sm font-semibold transition-colors"
+                className="btn-primary"
               >
-                Submit Application ✓
+                Submit Application
               </button>
             )}
           </div>
@@ -258,13 +258,13 @@ function Field({
 }) {
   return (
     <div>
-      <label className="block text-xs font-semibold text-white/50 mb-1.5 tracking-wide">{label}</label>
+      <label className="block text-xs font-semibold text-white/45 mb-1.5 tracking-wide">{label}</label>
       <input
         type={type}
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
-        className="w-full px-4 py-2.5 rounded-lg bg-white/[0.04] border border-white/[0.08] text-white text-sm placeholder-white/20 focus:outline-none focus:border-[#C8102E]/50 focus:bg-white/[0.06] transition-colors"
+        className="w-full px-4 py-2.5 rounded-lg bg-white/[0.03] border border-white/[0.08] text-white text-sm placeholder-white/20 focus:outline-none focus:border-[#C8102E]/50 focus:bg-white/[0.05] transition-colors"
       />
     </div>
   );
@@ -277,13 +277,13 @@ function Textarea({
 }) {
   return (
     <div>
-      <label className="block text-xs font-semibold text-white/50 mb-1.5 tracking-wide">{label}</label>
+      <label className="block text-xs font-semibold text-white/45 mb-1.5 tracking-wide">{label}</label>
       <textarea
         value={value}
         onChange={(e) => onChange(e.target.value)}
         placeholder={placeholder}
         rows={rows}
-        className="w-full px-4 py-2.5 rounded-lg bg-white/[0.04] border border-white/[0.08] text-white text-sm placeholder-white/20 focus:outline-none focus:border-[#C8102E]/50 focus:bg-white/[0.06] transition-colors resize-none"
+        className="w-full px-4 py-2.5 rounded-lg bg-white/[0.03] border border-white/[0.08] text-white text-sm placeholder-white/20 focus:outline-none focus:border-[#C8102E]/50 focus:bg-white/[0.05] transition-colors resize-none"
       />
     </div>
   );
@@ -296,11 +296,11 @@ function Select({
 }) {
   return (
     <div>
-      <label className="block text-xs font-semibold text-white/50 mb-1.5 tracking-wide">{label}</label>
+      <label className="block text-xs font-semibold text-white/45 mb-1.5 tracking-wide">{label}</label>
       <select
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="w-full px-4 py-2.5 rounded-lg bg-[#0d0d0d] border border-white/[0.08] text-white text-sm focus:outline-none focus:border-[#C8102E]/50 transition-colors"
+        className="w-full px-4 py-2.5 rounded-lg bg-[#111111] border border-white/[0.08] text-white text-sm focus:outline-none focus:border-[#C8102E]/50 transition-colors"
       >
         <option value="">Select...</option>
         {options.map((o) => <option key={o} value={o}>{o}</option>)}

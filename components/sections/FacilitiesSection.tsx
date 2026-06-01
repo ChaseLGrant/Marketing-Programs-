@@ -3,16 +3,11 @@ import { programData } from "@/lib/programData";
 import { SectionHeader } from "@/components/ui/section-header";
 import { PlaceholderImage } from "@/components/ui/placeholder-image";
 
-const facilityIcons: Record<string, string> = {
-  field: "🏟️", bullpens: "⚾", "weight-room": "🏋️",
-  "batting-cages": "🎯", "locker-room": "🔑", campus: "🏛️", "student-resources": "📚",
-};
-
 export function FacilitiesSection() {
   const { facilities } = programData;
 
   return (
-    <section id="facilities" className="py-32 px-5 sm:px-8 bg-[#0d0005]">
+    <section id="facilities" className="py-32 px-5 sm:px-8 bg-black">
       <div className="max-w-6xl mx-auto">
         <SectionHeader
           eyebrow="Facilities"
@@ -20,18 +15,18 @@ export function FacilitiesSection() {
           subtitle="First-class facilities built to develop first-class players."
         />
 
-        {/* Featured first facility — large */}
-        <div className="rounded-2xl overflow-hidden border border-white/[0.07] bg-[#141414] mb-6 card-hover">
+        {/* Featured first facility — large 2-col */}
+        <div className="card overflow-hidden mb-6">
           <div className="grid md:grid-cols-2">
-            <PlaceholderImage label="Field Photo" aspectRatio="aspect-video md:aspect-auto md:h-full" className="rounded-none border-0 min-h-[220px]" icon="🏟️" />
+            <PlaceholderImage label="Field Photo" aspectRatio="aspect-video md:aspect-auto md:h-full" className="rounded-none border-0 min-h-[220px] bg-[#0a0a0a]" />
             <div className="p-8 sm:p-10 flex flex-col justify-center">
               <span className="section-eyebrow mb-3">Main Field</span>
               <h3 className="text-2xl font-black text-white mb-3">{facilities[0].title}</h3>
-              <p className="text-sm text-white/50 leading-relaxed mb-5">{facilities[0].description}</p>
-              <ul className="space-y-2">
+              <p className="text-sm text-white/50 leading-relaxed mb-6">{facilities[0].description}</p>
+              <ul className="space-y-2.5">
                 {facilities[0].features.map((f, i) => (
-                  <li key={i} className="flex items-center gap-2 text-xs text-white/40">
-                    <div className="w-1 h-1 rounded-full bg-[#C8102E]" />
+                  <li key={i} className="flex items-center gap-2.5 text-xs text-white/40">
+                    <div className="w-1 h-1 rounded-full bg-[#C8102E] flex-shrink-0" />
                     {f}
                   </li>
                 ))}
@@ -43,15 +38,12 @@ export function FacilitiesSection() {
         {/* Remaining facilities grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {facilities.slice(1).map((facility) => (
-            <div key={facility.id} className="rounded-2xl overflow-hidden border border-white/[0.07] bg-[#141414] card-hover">
-              <div className="relative">
-                <PlaceholderImage
-                  label={`${facility.title} Photo`}
-                  aspectRatio="aspect-video"
-                  className="rounded-none border-0"
-                  icon={facilityIcons[facility.id] || "📷"}
-                />
-              </div>
+            <div key={facility.id} className="card card-interactive overflow-hidden">
+              <PlaceholderImage
+                label={`${facility.title} Photo`}
+                aspectRatio="aspect-video"
+                className="rounded-none border-0 bg-[#0a0a0a]"
+              />
               <div className="p-6">
                 <h3 className="font-bold text-white mb-2">{facility.title}</h3>
                 <p className="text-xs text-white/45 leading-relaxed mb-4">{facility.description}</p>
@@ -66,9 +58,6 @@ export function FacilitiesSection() {
                     <li className="text-xs text-white/20 italic pl-3">+{facility.features.length - 3} more</li>
                   )}
                 </ul>
-                <button className="mt-4 w-full flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl border border-white/[0.08] text-xs text-white/35 hover:text-white/60 hover:border-white/20 transition-colors">
-                  ▶ Watch Tour
-                </button>
               </div>
             </div>
           ))}
