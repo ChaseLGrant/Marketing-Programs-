@@ -274,7 +274,7 @@ export const programData = {
         title: "Hitting",
         icon: "⚾",
         description:
-          "Hitters work every single day. Our 7-station batting practice system is built around approach, not just mechanics — developing plate discipline, pitch recognition, and situational hitting through high-rep, competitive reps. Players get 25+ fall games to apply everything they're working on before the spring season even starts.",
+          "Hitters work every single day. Our 7-station batting practice system is built around approach, not just mechanics — developing the ability to attack fastballs early and handle offspeed pitches in any count. Players learn to trust their swing in fastball counts and stay disciplined on breaking balls. 25+ fall games give every hitter real at-bats to apply what they're building before the spring season even starts.",
         metrics: [
           { label: "BP Stations", value: "7", note: "Daily structured BP" },
           { label: "Fall Games", value: "25+", note: "Real at-bats every fall" },
