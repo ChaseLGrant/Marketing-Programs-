@@ -20,7 +20,10 @@ ships exactly as written.
 Lead capture uses **Netlify Forms**. On deploy, Netlify detects the hidden
 `athlete-market` form in `landing/index.html` and stores every submission.
 
-- View leads: **Site → Forms → athlete-market**.
+- **Clean call list:** leads also auto-append to a Google Sheet with a
+  **Called?** column — see [`LEADS_SETUP.md`](./LEADS_SETUP.md). This is the
+  easiest way to see who came in and call them back.
+- View/back up leads anytime: **Site → Forms → athlete-market**.
 - Every funnel outcome is tagged in the `outcome` field:
   `qualified_application`, `disqualified_free_only`, `free_resource_signup`,
   `spam_suspected`. UTM / fbclid / gclid params are captured for ad reporting.
