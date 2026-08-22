@@ -5,7 +5,7 @@ the phone — with a **Called?** column to check people off. Netlify Forms keeps
 a full backup of every submission automatically, so nothing is ever lost.
 
 **Your sheet:** *The Athlete Market — Leads*
-https://docs.google.com/spreadsheets/d/1XPSbOCwcmUoebOSIkLlyQBeZMsPIFCDAidFB0y57yS8/edit
+https://docs.google.com/spreadsheets/d/12AgNnOlzaawCenbTozK7sqpcbDUL2U0eay37QgOUk1Y/edit
 
 Columns are ordered for calling: Called? · Received · Parent Name · Phone ·
 Email · Athlete · Sport · Grad Year · Status · Timeline · Budget · … then the
