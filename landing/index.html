@@ -836,10 +836,37 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent);
   var CONFIG = {
     formName: "athlete-market",
     fallbackEmail: "",   // e.g. "chase@theathletemarket.com" — shown only if a submit fails
-    fallbackPhone: ""    // optional, e.g. "(760) 555-0148"
+    fallbackPhone: "",   // optional, e.g. "(760) 555-0148"
+
+    /* ==== META (FACEBOOK) PIXEL ==============================================
+       Paste your Pixel ID between the quotes (Events Manager → Data Sources →
+       your pixel → the 15–16 digit ID). Leave it as-is to keep the pixel OFF.
+       Once set, the page fires: PageView (auto), ApplicationStarted,
+       Lead (qualified application), ApplicationDisqualified, FreeResourceSignup.
+       ======================================================================== */
+    metaPixelId: "REPLACE_WITH_PIXEL_ID"
   };
 
   var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- Meta Pixel bootstrap + safe event helper ---------- */
+  var PIXEL_ON = /^\d{6,}$/.test(CONFIG.metaPixelId);
+  (function initPixel(){
+    if(!PIXEL_ON) return;
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+      (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', CONFIG.metaPixelId);
+    fbq('track', 'PageView');
+  })();
+  function px(event, params, custom){
+    if(!PIXEL_ON || !window.fbq) return;
+    try{ fbq(custom ? 'trackCustom' : 'track', event, params || {}); }catch(e){}
+  }
+  var startFired = false;
+  function fireStart(){ if(startFired) return; startFired = true; px('ApplicationStarted', {}, true); }
 
   /* ================= COACH DATA =================
      Real roles/schools pulled from the public coach directory on
@@ -968,6 +995,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent);
 
   function advance(){
     if(!validate(steps[cur])) return;
+    fireStart();
     var b=form.querySelector('input[name="budget"]:checked');
     if(b && b.value==='Free only' && steps[cur].contains(b)){
       var d=collect(); d.outcome='disqualified_free_only';
@@ -975,6 +1003,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent);
       Object.keys(TRACK).forEach(function(k){ d[k]=TRACK[k] });
       delete d.company;
       postWithRetry(d).catch(function(err){console.error('[TAM] off-ramp send failed:',err)});
+      px('ApplicationDisqualified', {reason:'free_only'}, true);
       showEnd('offramp'); return;
     }
     if(cur<steps.length-1){cur++;render(true)}
@@ -1081,6 +1110,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent);
 
     setSubmitting(true, btn);
     postWithRetry(d).then(function(){
+      px('Lead', {content_name:'Recruiting Application', content_category:d.sport||''});
       var n=(d.athlete_first||'').trim();
       if(n) document.getElementById('doneName').textContent=n;
       showEnd('done');
@@ -1098,6 +1128,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent);
     cur=(s&&g)?1:0;
     applyEl.scrollIntoView({behavior:reduce?'auto':'smooth'});
     render(false);
+    fireStart();
   });
 
   document.getElementById('freeBtn').addEventListener('click',function(){
@@ -1111,6 +1142,7 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent);
                  source:'meta-ad-landing-v3'};
     Object.keys(TRACK).forEach(function(k){payload[k]=TRACK[k]});
     postWithRetry(payload).then(function(){
+      px('FreeResourceSignup', {}, true);
       i.disabled=true; btn.textContent='Sent';
       m.textContent="It's on the way. Good luck this season."; m.style.color='var(--muted-2)';
     }).catch(function(){

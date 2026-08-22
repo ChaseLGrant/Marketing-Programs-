@@ -32,6 +32,9 @@ Lead capture uses **Netlify Forms**. On deploy, Netlify detects the hidden
   `.frame img` (search `ADD PHOTOGRAPH` in `landing/index.html`).
 - Add real coach names/photos: edit the `COACHES` array in the page script
   (add `name:` and optional `photo:` to each entry).
-- Add a Meta Pixel / GA tag in `<head>` if you're running paid traffic.
+- Turn on the Meta Pixel: set `CONFIG.metaPixelId` in the page script to your
+  Pixel ID. It then fires `PageView`, `ApplicationStarted`, `Lead` (qualified
+  application), `ApplicationDisqualified`, and `FreeResourceSignup`. Left unset,
+  the pixel stays off and nothing loads.
 - Optionally set `CONFIG.fallbackEmail` / `fallbackPhone` in the script so a
   failed submission shows a manual contact path.
