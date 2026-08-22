@@ -528,18 +528,15 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent);
   <div class="wrap">
     <div class="center rv">
       <div class="eyebrow">Your athlete's corner</div>
-      <h2>An elite recruiting team of <span class="blue">over 100 college coaches.</span></h2>
-      <p class="lede" style="margin-top:18px">Current and former college and pro coaches &mdash; the people who actually sit in the room when a recruiting class comes together. We pull the right ones for your athlete's sport, position, and level, so the plan is built by people who recruit that level for a living.</p>
+      <h2>An elite recruiting team of <span class="blue">100+ real college and professional coaches.</span></h2>
+      <p class="lede" style="margin-top:18px">Real, current and former college and pro coaches &mdash; the people who actually sit in the room when a recruiting class comes together. We pull the right ones for your athlete's sport, position, and level, so the plan is built by people who recruit that level for a living.</p>
     </div>
 
     <div class="stat-strip rv">
-      <div class="stat"><div class="big" id="coachCount">100+</div><div class="lbl">College &amp; pro coaches on the team</div></div>
+      <div class="stat"><div class="big" id="coachCount">100+</div><div class="lbl">Real college &amp; pro coaches on the team</div></div>
       <div class="stat"><div class="big">D1&ndash;JUCO</div><div class="lbl">Every division represented</div></div>
       <div class="stat"><div class="big">7+</div><div class="lbl">Sports and growing</div></div>
     </div>
-
-    <p class="grid-lead rv">A sample of the roles on the team</p>
-    <div class="coach-grid rv" id="coachGrid"></div>
 
     <p class="coach-note rv">You don't have to figure out which coach your athlete needs. That's our job &mdash; we match the right person to the sport, position, and level, and we stay in it with you.</p>
 
@@ -867,52 +864,6 @@ input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent);
   }
   var startFired = false;
   function fireStart(){ if(startFired) return; startFired = true; px('ApplicationStarted', {}, true); }
-
-  /* ================= COACH DATA =================
-     Real roles/schools pulled from the public coach directory on
-     theathletemarket.com. Names are intentionally omitted until verified —
-     the cards show role, school, division, and sport (all real). Add a
-     `name` and optional `photo` per entry to show individuals.
-     =============================================== */
-  var COACHES = [
-    {role:"Head Baseball Coach, Dodge City CC",                        sport:"Baseball",   div:"JUCO"},
-    {role:"Hitting & Catching Coach, USC Upstate",                     sport:"Baseball",   div:"D1"},
-    {role:"Assistant Coach / Recruiting Coordinator, Palomar College", sport:"Baseball",   div:"JUCO"},
-    {role:"Pitching Coach / Recruiting Coordinator, Dean College",     sport:"Baseball",   div:"D3"},
-    {role:"Assistant Men's Basketball Coach, Cal State Bakersfield",   sport:"Basketball", div:"D1"},
-    {role:"Assistant Coach / Recruiting Coordinator, Point Loma Nazarene", sport:"Baseball", div:"D2"},
-    {role:"Assistant Soccer Coach, Georgia Military University",       sport:"Soccer",     div:"JUCO"},
-    {role:"Assistant Coach / Recruiting Coordinator, West Virginia Wesleyan", sport:"Baseball", div:"D2"}
-  ];
-  var COACH_TOTAL = "100+";
-
-  var COACH_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="#155DFC" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg>';
-
-  (function renderCoaches(){
-    var grid = document.getElementById('coachGrid');
-    if(!grid) return;
-    document.getElementById('coachCount').textContent = COACH_TOTAL;
-    grid.innerHTML = COACHES.slice(0,8).map(function(c){
-      var parts = (c.role||'').split(',');
-      var school = parts.length > 1 ? parts.pop().trim() : '';
-      var position = parts.join(',').trim() || 'College Coach';
-      var title, sub;
-      if(c.name){
-        title = c.name; sub = c.role;
-      } else {
-        title = position; sub = school;
-      }
-      var av = c.photo
-        ? '<div class="av"><img src="'+c.photo+'" alt=""></div>'
-        : '<div class="av">'+COACH_ICON+'</div>';
-      return '<div class="coach">'+av+
-        '<div class="nm">'+title+'</div>'+
-        (sub ? '<div class="rl">'+sub+'</div>' : '')+
-        '<div class="meta"><span class="pill div">'+c.div+'</span><span class="pill">'+c.sport+'</span></div>'+
-      '</div>';
-    }).join('');
-  })();
-
 
   document.getElementById('yr').textContent = new Date().getFullYear();
 
