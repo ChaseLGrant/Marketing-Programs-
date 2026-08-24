@@ -128,7 +128,8 @@ const emptyData: ApplicationData = {
   "bot-field": "",
 };
 
-const totalSteps = 9;
+const TOTAL_STEPS = 9;
+const CONTACT_STEP = 8;
 
 function encodePayload(data: Record<string, string | string[]>) {
   return Object.entries(data)
@@ -233,7 +234,7 @@ export function ApplicationForm() {
     return () => window.removeEventListener("athlete-market:start-application", onStart);
   }, []);
 
-  const progress = useMemo(() => Math.round(((step + 1) / totalSteps) * 100), [step]);
+  const progress = useMemo(() => Math.round(((step + 1) / TOTAL_STEPS) * 100), [step]);
 
   const updateField = <K extends keyof ApplicationData>(field: K, value: ApplicationData[K]) => {
     setError("");
@@ -329,7 +330,7 @@ export function ApplicationForm() {
       return;
     }
 
-    setStep((current) => Math.min(current + 1, totalSteps - 1));
+    setStep((current) => Math.min(current + 1, TOTAL_STEPS - 1));
     scrollToCard();
   };
 
@@ -395,7 +396,7 @@ export function ApplicationForm() {
   const handleAutoAdvance = (field: "status" | "importance" | "timeline", value: string) => {
     updateField(field, value);
     window.setTimeout(() => {
-      setStep((current) => Math.min(current + 1, totalSteps - 1));
+      setStep((current) => Math.min(current + 1, TOTAL_STEPS - 1));
       scrollToCard();
     }, 140);
   };
@@ -414,7 +415,7 @@ export function ApplicationForm() {
     }
 
     window.setTimeout(() => {
-      setStep(8);
+      setStep(CONTACT_STEP);
       scrollToCard();
     }, 140);
   };
@@ -533,7 +534,7 @@ export function ApplicationForm() {
               <div className="px-6 pt-6 sm:px-8">
                 <div className="mb-3 flex items-center justify-between text-sm font-semibold text-[#6A7282]">
                   <span>
-                    Question <span className="text-[#155DFC]">{step + 1}</span> of {totalSteps}
+                    Question <span className="text-[#155DFC]">{step + 1}</span> of {TOTAL_STEPS}
                   </span>
                   <span>{progress}% complete</span>
                 </div>
