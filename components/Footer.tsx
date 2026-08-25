@@ -1,66 +1,27 @@
-"use client";
-import { programData } from "@/lib/programData";
-import Link from "next/link";
-
 export function Footer() {
-  const { program } = programData;
-
   return (
-    <footer className="border-t border-white/[0.06] bg-[#0a0a0a] py-14 px-5 sm:px-8">
-      <div className="max-w-6xl mx-auto">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
-          {/* Brand */}
-          <div className="lg:col-span-2">
-            <div className="flex items-center gap-3 mb-4">
-              <img src="/palomar-logo.png" alt="Palomar Comets" className="h-10 w-auto" />
-              <div>
-                <div className="font-black text-white">{program.shortName}</div>
-                <div className="text-xs text-white/35">{program.location}</div>
-              </div>
-            </div>
-            <p className="text-sm text-white/35 leading-relaxed max-w-xs">
-              An elite recruiting platform showcasing the culture, development system, and facilities of Palomar College Baseball.
-            </p>
-          </div>
+    <footer className="bg-[#101828] px-5 py-12 text-[#98A2B3] sm:px-8">
+      <div className="mx-auto max-w-7xl">
+        <a href="#top" className="inline-flex items-center gap-3 text-white">
+          <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#155DFC] text-lg font-extrabold text-white">
+            A
+          </span>
+          <span className="text-xl font-extrabold tracking-[-0.03em]">The Athlete Market</span>
+        </a>
 
-          {/* Sections */}
-          <div>
-            <p className="text-[0.65rem] font-bold tracking-[0.15em] uppercase text-white/25 mb-4">Program</p>
-            <ul className="space-y-2">
-              {["#story", "#coaches", "#development", "#facilities", "#uniforms"].map((href) => (
-                <li key={href}>
-                  <a href={href} className="text-sm text-white/40 hover:text-white transition-colors capitalize">
-                    {href.replace("#", "").replace("-", " ")}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+        <p className="mt-5 max-w-5xl text-sm leading-7 text-[#8892A4]">
+          The Athlete Market is an independent recruiting advisory service. We are not affiliated
+          with, endorsed by, or acting on behalf of the NCAA, NAIA, NJCAA, or any college,
+          university, or athletic program. We do not guarantee scholarships, offers, roster spots,
+          or admission. We provide professional guidance, evaluation, strategy, and support
+          throughout the recruiting process.
+        </p>
 
-          <div>
-            <p className="text-[0.65rem] font-bold tracking-[0.15em] uppercase text-white/25 mb-4">Recruits</p>
-            <ul className="space-y-2">
-              {["#opportunities", "#outcomes", "#faq", "#recruit-form"].map((href) => (
-                <li key={href}>
-                  <a href={href} className="text-sm text-white/40 hover:text-white transition-colors capitalize">
-                    {href.replace("#", "").replace("-", " ")}
-                  </a>
-                </li>
-              ))}
-              <li>
-                <Link href="/dashboard" className="text-sm text-white/40 hover:text-white transition-colors">
-                  Coach Login
-                </Link>
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div className="border-t border-white/[0.06] pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-xs text-white/20">© 2025 Palomar College Baseball. All rights reserved.</p>
-          <p className="text-xs text-white/20">
-            Powered by <span className="text-white/35 font-semibold">Program Showcase</span>
-          </p>
+        <div className="mt-8 border-t border-white/12 pt-5 text-sm font-semibold">
+          © {new Date().getFullYear()} The Athlete Market · {" "}
+          <a href="#apply" className="text-[#74A0FD] transition hover:text-white">
+            Apply
+          </a>
         </div>
       </div>
     </footer>

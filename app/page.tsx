@@ -1,51 +1,37 @@
 import { Navigation } from "@/components/Navigation";
 import { HeroSection } from "@/components/sections/HeroSection";
-import { StorySection } from "@/components/sections/StorySection";
+import { TrustBar } from "@/components/sections/TrustBar";
+import { ProblemSection } from "@/components/sections/ProblemSection";
+import { ServicesSection } from "@/components/sections/ServicesSection";
+import { FounderSection } from "@/components/sections/FounderSection";
 import { CoachesSection } from "@/components/sections/CoachesSection";
-import { WhoThrivesSection } from "@/components/sections/WhoThrivesSection";
-import { DailyScheduleSection } from "@/components/sections/DailyScheduleSection";
-import { DevelopmentSection } from "@/components/sections/DevelopmentSection";
-import { FacilitiesSection } from "@/components/sections/FacilitiesSection";
-import { UniformsSection } from "@/components/sections/UniformsSection";
-import { RecruitingStandardsSection } from "@/components/sections/RecruitingStandardsSection";
-import { OpportunityIndexSection } from "@/components/sections/OpportunityIndexSection";
-import { NotableAlumniSection } from "@/components/sections/NotableAlumniSection";
-import { OutcomesSection } from "@/components/sections/OutcomesSection";
+import { ComparisonSection } from "@/components/sections/ComparisonSection";
+import { InvestmentSection } from "@/components/sections/InvestmentSection";
 import { FAQSection } from "@/components/sections/FAQSection";
-import { RecruitFormSection } from "@/components/sections/RecruitFormSection";
-import { WhyProgramsSection } from "@/components/sections/WhyProgramsSection";
+import { ApplicationForm } from "@/components/sections/ApplicationForm";
 import { Footer } from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main className="bg-[#0a0a0a]">
+    <main className="bg-[#FAFBFC]">
       <Navigation />
-
       <HeroSection />
-      <StorySection />
+      <TrustBar />
+      <ProblemSection />
+      <ServicesSection />
+      <FounderSection />
       <CoachesSection />
-      <WhoThrivesSection />
-      <DailyScheduleSection />
-      <DevelopmentSection />
-      <FacilitiesSection />
-      <UniformsSection />
-      <RecruitingStandardsSection />
-      <OpportunityIndexSection />
-      <NotableAlumniSection />
-      <OutcomesSection />
+      <ComparisonSection />
+      <InvestmentSection />
       <FAQSection />
-      <RecruitFormSection />
-      <WhyProgramsSection />
-
+      <ApplicationForm />
       <Footer />
-
-      {/* Sticky mobile CTA */}
-      <div className="fixed bottom-0 left-0 right-0 z-40 sm:hidden bg-black/95 backdrop-blur-xl border-t border-white/[0.08] px-4 py-3">
+      <div className="fixed inset-x-0 bottom-0 z-40 border-t border-[#E5E7EB] bg-white/95 px-4 py-3 backdrop-blur sm:hidden">
         <a
-          href="#recruit-form"
-          className="block w-full text-center px-4 py-3 rounded-xl bg-[#C8102E] text-white text-sm font-bold"
+          href="#apply"
+          className="block rounded-full bg-[#155DFC] px-5 py-3 text-center text-sm font-extrabold text-white"
         >
-          Get Recruited by Palomar Baseball →
+          See if your athlete qualifies →
         </a>
       </div>
     </main>
